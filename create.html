@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden"
+      style="--select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(96,117,138)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'); font-family: Manrope, &quot;Noto Sans&quot;, sans-serif;"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f5] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111418]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">Narrascent Pebble</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Discover</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Create</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Library</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Shop</a>
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#f0f2f5] text-[#111418] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div class="text-[#111418]" data-icon="Question" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3HqrZokyHZj6lkCrO4yD4A33CF_xtdP8dvGDiBTPnWoeweOK_uR-fiS6CQ4Etoe5UvTGgXjvvRqhgQ1vQKxgF5CrGilyoeKY4oDLqpQtyoFrhSGpI2mo5KlWs5Vr0Gu7OLF9D-h10jP7lZwG9UXzw_T6nuPdHaVmOBd7rIzDjEi6WfOnhaJuPgMMKkkwe0lucgwdU26lAsaL-EFGjYPP66USDRr9gUDFvOT8ueba-qtD1Fqpd6Z7LYo8B6bxQ85WtGxbMokVbX4S3");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72">Create a New Scent</p></div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <textarea
+                  placeholder="Describe your ideal scent... (400 characters max)"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] min-h-36 placeholder:text-[#60758a] p-[15px] text-base font-normal leading-normal"
+                ></textarea>
+              </label>
+            </div>
+            <p class="text-[#60758a] text-sm font-normal leading-normal pb-3 pt-1 px-4">Characters remaining: 400 | Paste from clipboard</p>
+            <div class="flex px-4 py-3 justify-start">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#3d98f4] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Generate Scent</span>
+              </button>
+            </div>
+            <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Scent Recipe</h2>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#111418] text-base font-bold leading-tight">Mystic Woods</p>
+                  <p class="text-[#60758a] text-sm font-normal leading-normal">A captivating blend of cedarwood, amber, and a hint of citrus.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCva2wHn5z0qoUQRXHbNx_NBunfDKqVRf5UTriRx9I4J8xa8Y2g2i3Q3QAJYPbWpIakep1BiwaALYOD4XS43qSBdHHKJxKSKLx62RkDtM5c1zt1KkLiO_IQ9ztkvLfrV4IbEC8BG7udhX_JZCbXesJtXNVsmXWdZ_z3VtkVBt-AbAy49xJy_3-pQiZJz9Xok9-kWu340GYRCGQtr4fta6_HazUECtnd1jp0jrpGYovT-DBc5Bp1ccEEuIGFsR3kENfY1tjbKElPifLZ");'
+                ></div>
+              </div>
+            </div>
+            <div class="@container">
+              <div class="relative flex w-full flex-col items-start justify-between gap-3 p-4 @[480px]:flex-row @[480px]:items-center">
+                <div class="flex w-full shrink-[3] items-center justify-between">
+                  <p class="text-[#111418] text-base font-medium leading-normal">Cedarwood</p>
+                  <p class="text-[#111418] text-sm font-normal leading-normal @[480px]:hidden">60%</p>
+                </div>
+                <div class="flex h-4 w-full items-center gap-4">
+                  <div class="flex h-1 flex-1 rounded-sm bg-[#dbe0e6]">
+                    <div class="h-full w-[32%] rounded-sm bg-[#111418]"></div>
+                    <div class="relative"><div class="absolute -left-2 -top-1.5 size-4 rounded-full bg-[#111418]"></div></div>
+                  </div>
+                  <p class="text-[#111418] text-sm font-normal leading-normal hidden @[480px]:block">60%</p>
+                </div>
+              </div>
+            </div>
+            <div class="@container">
+              <div class="relative flex w-full flex-col items-start justify-between gap-3 p-4 @[480px]:flex-row @[480px]:items-center">
+                <div class="flex w-full shrink-[3] items-center justify-between">
+                  <p class="text-[#111418] text-base font-medium leading-normal">Amber</p>
+                  <p class="text-[#111418] text-sm font-normal leading-normal @[480px]:hidden">30%</p>
+                </div>
+                <div class="flex h-4 w-full items-center gap-4">
+                  <div class="flex h-1 flex-1 rounded-sm bg-[#dbe0e6]">
+                    <div class="h-full w-[32%] rounded-sm bg-[#111418]"></div>
+                    <div class="relative"><div class="absolute -left-2 -top-1.5 size-4 rounded-full bg-[#111418]"></div></div>
+                  </div>
+                  <p class="text-[#111418] text-sm font-normal leading-normal hidden @[480px]:block">30%</p>
+                </div>
+              </div>
+            </div>
+            <div class="@container">
+              <div class="relative flex w-full flex-col items-start justify-between gap-3 p-4 @[480px]:flex-row @[480px]:items-center">
+                <div class="flex w-full shrink-[3] items-center justify-between">
+                  <p class="text-[#111418] text-base font-medium leading-normal">Citrus</p>
+                  <p class="text-[#111418] text-sm font-normal leading-normal @[480px]:hidden">10%</p>
+                </div>
+                <div class="flex h-4 w-full items-center gap-4">
+                  <div class="flex h-1 flex-1 rounded-sm bg-[#dbe0e6]">
+                    <div class="h-full w-[32%] rounded-sm bg-[#111418]"></div>
+                    <div class="relative"><div class="absolute -left-2 -top-1.5 size-4 rounded-full bg-[#111418]"></div></div>
+                  </div>
+                  <p class="text-[#111418] text-sm font-normal leading-normal hidden @[480px]:block">10%</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between">
+              <p class="text-[#111418] text-base font-normal leading-normal flex-1 truncate">Longevity</p>
+              <div class="shrink-0">
+                <div class="flex size-7 items-center justify-center"><div class="size-3 rounded-full bg-[#078838]"></div></div>
+              </div>
+            </div>
+            <div class="flex justify-stretch">
+              <div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-start">
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span class="truncate">Preview 5-sec mist</span>
+                </button>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#3d98f4] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span class="truncate">Save to Library</span>
+                </button>
+              </div>
+            </div>
+            <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Live Diffusion</h2>
+            <div class="flex px-4 py-3 justify-start">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#3d98f4] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Diffuse Now</span>
+              </button>
+            </div>
+            <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Schedule Diffusion</h2>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <select
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 bg-[image:--select-button-svg] placeholder:text-[#60758a] p-[15px] text-base font-normal leading-normal"
+                >
+                  <option value="one">Select Date</option>
+                  <option value="two">two</option>
+                  <option value="three">three</option>
+                </select>
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <select
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 bg-[image:--select-button-svg] placeholder:text-[#60758a] p-[15px] text-base font-normal leading-normal"
+                >
+                  <option value="one">Select Time</option>
+                  <option value="two">two</option>
+                  <option value="three">three</option>
+                </select>
+              </label>
+            </div>
+            <div class="flex px-4 py-3 justify-start">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#3d98f4] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Schedule</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
