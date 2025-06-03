@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, jsonify
+import smtplib
+from email.message import EmailMessage
 
 
 app = Flask(__name__)
@@ -41,10 +43,24 @@ def demo():
     }
     return jsonify(response)
 
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    data = request.get_json(force=True)
+    email = data.get('email')
+    if not email:
+        return jsonify({'success': False}), 400
+    msg = EmailMessage()
+    msg['Subject'] = 'Welcome to Narrascent'
+    msg['From'] = 'noreply@narrascent.com'
+    msg['To'] = email
+    msg.set_content('Welcome to Narrascent! We are excited to have you.')
+    try:
+        with smtplib.SMTP('localhost') as smtp:
+            smtp.send_message(msg)
+    except Exception as e:
+        print('Error sending email:', e)
+    return jsonify({'success': True})
 
 if __name__ == "__main__":
-    # Run the development server when the script is executed directly
-    # This allows `python app.py` to start the Flask application as
-    # documented in the README.
     app.run(debug=True)
 

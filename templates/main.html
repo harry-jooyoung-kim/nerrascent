@@ -20,17 +20,16 @@
     >
       <div class="layout-container flex h-full grow flex-col">
         <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f5] px-10 py-3">
-          <div class="flex items-center gap-4 text-[#111418]">
+          <a href="/" class="flex items-center gap-4 text-[#111418]">
             <div class="size-4">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
               </svg>
             </div>
             <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">Narrascent Pebble</h2>
-          </div>
+          </a>
           <div class="flex flex-1 justify-end gap-8">
             <div class="flex items-center gap-9">
-              <a class="text-[#111418] text-sm font-medium leading-normal" href="/">Home</a>
               <a class="text-[#111418] text-sm font-medium leading-normal" href="/how-it-works">How It Works</a>
               <a class="text-[#111418] text-sm font-medium leading-normal" href="/pebble">Pebble</a>
               <a class="text-[#111418] text-sm font-medium leading-normal" href="/shop">Shop</a>
@@ -55,32 +54,18 @@
                     Write a line, breathe a scent.
                   </h1>
                   <div class="flex-wrap gap-3 flex justify-center">
-                    <button
+                    <button id="compose-demo-btn"
                       class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#3d98f4] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                     >
                       <span class="truncate">Compose Demo</span>
                     </button>
-                    <button
+                    <button id="preorder-btn"
                       class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#f0f2f5] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                     >
                       <span class="truncate">Pre-Order</span>
                     </button>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCuVJIcB_V_tnKaUD_XtlU6S0qQQF3etxA38fht6yA9px3w7jVbuQz6mS3GIEyZ21w5ODb9BL9G2MOVwYiRAvRV84qROjJD0Rnb92Qd7zAOTQq0IxmIgUcvXpVHdgmW9F27mzuy4ORpTmjhwRCNTlmDaC048zjYpNP2TuhQVhofnmgc0IU-YfvEllxY7xW-whAFcuusR26lH0_pLH1VJompRbR7CVJTW3npNOffUuXKecVJIzhyAxBljKDOkZpJ7atIGlXCGgQJJWoh");'
-                ></div>
-              </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAt39ohBZ_Q4e8e0tXLqknvktLfjhqGtdBr0rRXOa-aUf7z4TWNFKzRiDHz0hMBRoIzC14ebpttTg2LEM0Y9xDfCQVVcwmylcTCajsbY9k7lUdu2G5jH0CxMjcq5ut2Mq5ZFgs5Lym0h6-UmutGEtjh4Bh-Q_1egbPP4J7eXQRoUIxuJdzPl_BcJzjA4t68xAwndrsrGP-B56AT_p6lQVo7rizS9fJ8RSPoEL2Me5YNYxpQFg1O1FLTZBmoVQb3CAj0cVX4u0_e3hJO");'
-                ></div>
               </div>
             </div>
             <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Key Features</h2>
@@ -135,10 +120,10 @@
                 </button>
               </div>
             </form>
-            <h2 id="demo-result" class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 text-center pb-2 pt-4">
+            <h2 id="demo-result" class="hidden text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 text-center pb-2 pt-4">
               Top Notes: Citrus, Bergamot | Mid Notes: Lavender, Rosemary | Base Notes: Cedarwood, Musk
             </h2>
-            <div class="flex w-full grow bg-white @container p-4">
+            <div id="demo-image" class="hidden flex w-full grow bg-white @container p-4">
               <div class="w-full gap-1 overflow-hidden bg-white @[480px]:gap-2 aspect-[3/2] rounded-lg flex">
                 <div
                   class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1"
@@ -148,23 +133,12 @@
             </div>
             <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Experience the Pebble</h2>
             <div class="p-4">
-              <div
-                class="relative flex items-center justify-center bg-[#111418] bg-cover bg-center aspect-video rounded-lg p-4"
-                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-5usVVIaqQ35ZjEGSLNMMsKKRGuyzf4jeBG3GZvTXmhmTn-IF7PMC9BCZ3DoQgjFx6sU3KfFpm_itm2Tx1SVo8LaO9Mv3mnESQ4iWAPmxJ8MAAl4pA10UoYxUKoQwu7uiGZ_AF5TVT7YM8MW48435-L8Jj6cgZJcazeJqMuI_oudZlfhX939yqItTjxsgZsGgPDbYQnjP3gMESqLbOG7ch7nMcrNfC773ac5Iw1OdMjZIiVCAZ39g36w9vyX1EJXWcbBBtCWaf-Le");'
-              >
-                <button class="flex shrink-0 items-center justify-center rounded-full size-16 bg-black/40 text-white">
-                  <div class="text-inherit" data-icon="Play" data-size="24px" data-weight="fill">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                      <path
-                        d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"
-                      ></path>
-                    </svg>
-                  </div>
-                </button>
+              <div class="aspect-video w-full">
+                <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Pebble video" allowfullscreen></iframe>
               </div>
             </div>
             <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">What Users Say</h2>
-            <div class="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+            <div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
               <div class="flex items-stretch p-4 gap-3">
                 <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-40">
                   <div
@@ -210,6 +184,26 @@
                     <p class="text-[#60758a] text-sm font-normal leading-normal">Liam Foster</p>
                   </div>
                 </div>
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-40">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDcNewSample1");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111418] text-base font-medium leading-normal">"Amazing quality and delightful scents."</p>
+                    <p class="text-[#60758a] text-sm font-normal leading-normal">Jordan Lee</p>
+                  </div>
+                </div>
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-40">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDcNewSample2");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111418] text-base font-medium leading-normal">"My friends keep asking about my new fragrances."</p>
+                    <p class="text-[#60758a] text-sm font-normal leading-normal">Casey Morgan</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -219,6 +213,7 @@
             <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
               <label class="flex flex-col min-w-40 flex-1">
                 <input
+                  id="subscribe-email"
                   placeholder="Enter your email"
                   class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 placeholder:text-[#60758a] p-[15px] text-base font-normal leading-normal"
                   value=""
@@ -235,7 +230,7 @@
               </label>
             </div>
             <div class="flex px-4 py-3 justify-center">
-              <button
+              <button id="subscribe-btn"
                 class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#3d98f4] text-white text-sm font-bold leading-normal tracking-[0.015em]"
               >
                 <span class="truncate">Subscribe</span>
@@ -243,7 +238,7 @@
             </div>
             <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
               <div class="flex flex-wrap justify-center gap-4">
-                <a href="#">
+                <a href="https://twitter.com" target="_blank">
                   <div class="text-[#60758a]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                       <path
@@ -252,7 +247,7 @@
                     </svg>
                   </div>
                 </a>
-                <a href="#">
+                <a href="https://instagram.com" target="_blank">
                   <div class="text-[#60758a]" data-icon="InstagramLogo" data-size="24px" data-weight="regular">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                       <path
@@ -269,10 +264,13 @@
       </div>
     </div>
     <script>
+      const result = document.getElementById('demo-result');
+      const image = document.getElementById('demo-image');
       document.getElementById('demo-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         const text = document.getElementById('demo-text').value;
-        const result = document.getElementById('demo-result');
+        result.classList.remove('hidden');
+        image.classList.remove('hidden');
         result.textContent = 'Generating...';
         try {
           const r = await fetch('/demo', {
@@ -284,6 +282,29 @@
           result.textContent = `Top: ${data.top.join(', ')} | Mid: ${data.mid.join(', ')} | Base: ${data.base.join(', ')}`;
         } catch (err) {
           result.textContent = 'Error generating scent.';
+        }
+      });
+
+      document.getElementById('compose-demo-btn').addEventListener('click', () => {
+        document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      document.getElementById('preorder-btn').addEventListener('click', () => {
+        window.location.href = '/pebble';
+      });
+
+      document.getElementById('subscribe-btn').addEventListener('click', async () => {
+        const email = document.getElementById('subscribe-email').value;
+        if (!email) return;
+        try {
+          await fetch('/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+          alert('Welcome email sent!');
+        } catch (err) {
+          alert('Subscription failed.');
         }
       });
     </script>
