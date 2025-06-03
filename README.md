@@ -33,3 +33,4 @@ To actually send emails, set the following environment variables before running 
 - `SMTP_PASSWORD` – password for SMTP authentication, if required
 - `SMTP_USE_TLS` – set to `true` to enable TLS
 
+

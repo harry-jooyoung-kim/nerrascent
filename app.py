@@ -44,7 +44,6 @@ def demo():
     }
     return jsonify(response)
 
-
 @app.route('/subscribe', methods=['POST'])
 def subscribe():
     data = request.get_json(force=True)
@@ -73,8 +72,6 @@ def subscribe():
     except Exception as e:
         print('Error sending email:', e)
     return jsonify({'success': True})
-
-
 if __name__ == "__main__":
     # Run the development server when the script is executed directly
     # This allows `python app.py` to start the Flask application as
