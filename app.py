@@ -41,3 +41,10 @@ def demo():
     }
     return jsonify(response)
 
+
+if __name__ == "__main__":
+    # Run the development server when the script is executed directly
+    # This allows `python app.py` to start the Flask application as
+    # documented in the README.
+    app.run(debug=True)
+
