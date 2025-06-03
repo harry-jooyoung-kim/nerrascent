@@ -43,7 +43,7 @@
               <label class="flex flex-col min-w-40 flex-1">
                 <p class="text-[#111418] text-base font-medium leading-normal pb-2">Season</p>
                 <select
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 bg-[image:--select-button-svg] placeholder:text-[#60758a] p-[15px] text-base font-normal leading-normal"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-10 bg-[image:--select-button-svg] placeholder:text-[#60758a] p-[15px] text-base font-normal leading-normal"
                 >
                   <option value="one">All</option>
                   <option value="two">two</option>
@@ -122,30 +122,112 @@
             <p class="text-[#111418] text-base font-normal leading-normal pb-3 pt-1 px-4">
               Pairing Suggestions: Combine with 'Forest Canopy' for a balanced, earthy aroma, or 'Citrus Burst' for an invigorating, summery scent.
             </p>
-            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Subscription</h3>
-            <div class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between">
-              <div class="flex flex-col justify-center">
-                <p class="text-[#111418] text-base font-medium leading-normal line-clamp-1">Subscribe</p>
-                <p class="text-[#60758a] text-sm font-normal leading-normal line-clamp-2">Every 3 months save 10%</p>
+            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Build Your Palette</h3>
+            <div class="p-4 flex flex-col gap-4">
+              <div>
+                <p class="text-[#111418] text-base font-medium leading-normal">Choose Palette Size</p>
+                <div class="flex gap-4 py-2">
+                  <label class="flex items-center gap-2">
+                    <input type="radio" name="palette" value="3" class="palette-option" checked />
+                    <span>3 Notes ($30)</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="radio" name="palette" value="6" class="palette-option" />
+                    <span>6 Notes ($55)</span>
+                  </label>
+                </div>
               </div>
-              <div class="shrink-0">
-                <label
-                  class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-[#f0f2f5] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-[#3d98f4]"
-                >
-                  <div class="h-full w-[27px] rounded-full bg-white" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px, rgba(0, 0, 0, 0.06) 0px 3px 1px;"></div>
-                  <input type="checkbox" class="invisible absolute" />
-                </label>
+              <div>
+                <p class="text-[#111418] text-base font-medium leading-normal">
+                  Select Notes (<span id="note-count"></span> slots left)
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-2 pt-2">
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" class="note-checkbox" value="Coastal Breeze" />
+                    <span>Coastal Breeze</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" class="note-checkbox" value="Forest Canopy" />
+                    <span>Forest Canopy</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" class="note-checkbox" value="Citrus Burst" />
+                    <span>Citrus Burst</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" class="note-checkbox" value="Spiced Vanilla" />
+                    <span>Spiced Vanilla</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" class="note-checkbox" value="Desert Bloom" />
+                    <span>Desert Bloom</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" class="note-checkbox" value="Mountain Air" />
+                    <span>Mountain Air</span>
+                  </label>
+                </div>
               </div>
             </div>
             <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Cart</h3>
             <div class="flex flex-col gap-3 p-4">
-              <div class="flex gap-6 justify-between"><p class="text-[#111418] text-base font-medium leading-normal">Shipping</p></div>
-              <div class="rounded bg-[#dbe0e6]"><div class="h-2 rounded bg-[#111418]" style="width: 50%;"></div></div>
-              <p class="text-[#60758a] text-sm font-normal leading-normal">Spend $15 more for free shipping</p>
+              <p class="text-[#111418] text-base font-medium leading-normal">Selected Notes:</p>
+              <p id="cart-notes" class="text-[#60758a] text-sm font-normal leading-normal"></p>
+              <p class="text-[#111418] text-base font-medium leading-normal">Total: <span id="cart-price"></span></p>
+              <button id="checkout" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#3d98f4] text-white text-sm font-bold leading-normal">Checkout</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      const palettePrice = {3: 30, 6: 55};
+      let paletteSize = 3;
+      let selectedNotes = [];
+
+      function updateCart() {
+        const remaining = paletteSize - selectedNotes.length;
+        document.getElementById('note-count').textContent = remaining;
+        document.getElementById('cart-notes').textContent = selectedNotes.join(', ') || 'None';
+        document.getElementById('cart-price').textContent = '$' + palettePrice[paletteSize].toFixed(2);
+        document.getElementById('checkout').disabled = remaining !== 0;
+      }
+
+      document.querySelectorAll('.palette-option').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          paletteSize = parseInt(e.target.value);
+          selectedNotes = [];
+          document.querySelectorAll('.note-checkbox').forEach(cb => cb.checked = false);
+          updateCart();
+        });
+      });
+
+      document.querySelectorAll('.note-checkbox').forEach(cb => {
+        cb.addEventListener('change', (e) => {
+          const note = e.target.value;
+          if (e.target.checked) {
+            if (selectedNotes.length < paletteSize) {
+              selectedNotes.push(note);
+            } else {
+              e.target.checked = false;
+              alert('Palette full');
+            }
+          } else {
+            selectedNotes = selectedNotes.filter(n => n !== note);
+          }
+          updateCart();
+        });
+      });
+
+      document.getElementById('checkout').addEventListener('click', () => {
+        if (selectedNotes.length !== paletteSize) {
+          alert(`Please select ${paletteSize} notes.`);
+          return;
+        }
+        alert(`Purchased palette with ${paletteSize} notes: ${selectedNotes.join(', ')}`);
+      });
+
+      updateCart();
+    </script>
   </body>
 </html>
