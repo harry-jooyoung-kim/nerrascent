@@ -24,3 +24,13 @@ Available routes:
 - `/demo` – POST endpoint used by the home page interactive demo.
 - `/subscribe` – POST endpoint to send a welcome email when subscribing.
 
+### Email configuration
+To actually send emails, set the following environment variables before running the app:
+
+- `SMTP_SERVER` – address of your SMTP server (default `localhost`)
+- `SMTP_PORT` – port to connect to (default `25`)
+- `SMTP_USERNAME` – username for SMTP authentication, if required
+- `SMTP_PASSWORD` – password for SMTP authentication, if required
+- `SMTP_USE_TLS` – set to `true` to enable TLS
+
+
