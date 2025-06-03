@@ -12,6 +12,10 @@
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      .note{cursor:pointer;}
+      .note.selected{outline:3px solid #3d98f4;filter:brightness(0.7);}
+    </style>
   </head>
   <body>
     <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Manrope, "Noto Sans", sans-serif;'>
@@ -57,7 +61,7 @@
                       preferences.
                     </h2>
                   </div>
-                  <button
+                  <button id="preorder-btn"
                     class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#3d98f4] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                   >
                     <span class="truncate">Pre-order now</span>
@@ -67,11 +71,11 @@
             </div>
             <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Interactive 3D Model</h2>
             <div class="p-4">
-              <div
+              <div id="video-container"
                 class="relative flex items-center justify-center bg-[#111418] bg-cover bg-center aspect-video rounded-lg p-4"
                 style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxcCON7RyHjooISxKzlLgW9baq5zx6zOxx0vtKpx5ntgJoblzqVF9ncv8Zo1eVU7kbQEoeKOTuxektRg6ABOAC3IkZNXlCnUqWFCN2lSs_V6bgQwMFBDU1W3g1uEtYEx9dCOZ05Js_R7S3Pe5Uu8tbyb4TVVbUoUJgMCbWcxUmaYH5lTfKIcGZdvGWRRWHPn2DKszl1HsAs2jYsgXX_AKKsibwoCq2_L7QhDeTe2KN0xVIG59ZzzHdrrYieFDYPCVZdsJ0FiflB14F");'
               >
-                <button class="flex shrink-0 items-center justify-center rounded-full size-16 bg-black/40 text-white">
+                <button id="play-video" class="flex shrink-0 items-center justify-center rounded-full size-16 bg-black/40 text-white">
                   <div class="text-inherit" data-icon="Play" data-size="24px" data-weight="fill">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                       <path
@@ -114,111 +118,96 @@
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB3A-a5hAOIWhnuRvOwV5tJhxfhjWBnnL7V92T-EcMoDNwwiiSWDA1JYMn8udSPSuOF0-OrFZ54nnrTjTT_5F9j3ieKYHmOuvGrdWjt0tLiDXIS9WqOyQEclNViBcYM2UogDZTOIWHrXJDzq9XCUlyZvSYfY8ckKKc-6ngbhZV4dUO3j_VabMDJCzC5iYp3iW1HTumwtO7DSfG2Hqxzv9XbvDj3iQzVqexMqNTqqFBpE6Bybn8q7jFXetlsTmFGu0bexlqi4UwqEp_7");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB3A-a5hAOIWhnuRvOwV5tJhxfhjWBnnL7V92T-EcMoDNwwiiSWDA1JYMn8udSPSuOF0-OrFZ54nnrTjTT_5F9j3ieKYHmOuvGrdWjt0tLiDXIS9WqOyQEclNViBcYM2UogDZTOIWHrXJDzq9XCUlyZvSYfY8ckKKc-6ngbhZV4dUO3j_VabMDJCzC5iYp3iW1HTumwtO7DSfG2Hqxzv9XbvDj3iQzVqexMqNTqqFBpE6Bybn8q7jFXetlsTmFGu0bexlqi4UwqEp_7"); data-name="Note 1"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlr9PEhTjHsJNpi32K2MzrXLQU8qUpOyQFDqYwUWSOETu1_P9smGO-7kbVFasrHjrqRhkhyVZaoP7qRWyQ1ZO8-utAm1A5Ktu4dSz0caN8y5CSPsW4SCk8fqSRtZmAbf6z-EUpCppTCzqE6DijpzBUIVTNFwXt1AneSENqGRmn3N4YQQj88yqoFSchjAM-uXKDEPEzE7AcHn_xCcZZLdU4Y-4eEM6ro12EZ7vagRTIwlIYz2AXsp92J2vkTJiHJfEZ3tT6j_KXpIoq");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlr9PEhTjHsJNpi32K2MzrXLQU8qUpOyQFDqYwUWSOETu1_P9smGO-7kbVFasrHjrqRhkhyVZaoP7qRWyQ1ZO8-utAm1A5Ktu4dSz0caN8y5CSPsW4SCk8fqSRtZmAbf6z-EUpCppTCzqE6DijpzBUIVTNFwXt1AneSENqGRmn3N4YQQj88yqoFSchjAM-uXKDEPEzE7AcHn_xCcZZLdU4Y-4eEM6ro12EZ7vagRTIwlIYz2AXsp92J2vkTJiHJfEZ3tT6j_KXpIoq"); data-name="Note 2"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCCPIEDN2fG4WqLWO1NEO4PsadBOvjv92Hhy4IJkb_1AlqxFtZSfW25n5oFGdYrj07SWHBdk2qYB5N0PBD2Qq1ZpNz_1BYJPtz0cniFWFEZ4XgkfJByn6qYVboqjbui1PtZBC7ehdYfa4y-olgW55uIhaMIkPdsYR9XBQAQ93ofcXd1t4J14QUGceh6zbJTh9_K5E5tQOANFCYKugzMz0F3R9C34f1H2PkBXnagJ2iJrFdbOMsvAYI0CxKwx-XMJ4qkUBZWM4sx980E");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCCPIEDN2fG4WqLWO1NEO4PsadBOvjv92Hhy4IJkb_1AlqxFtZSfW25n5oFGdYrj07SWHBdk2qYB5N0PBD2Qq1ZpNz_1BYJPtz0cniFWFEZ4XgkfJByn6qYVboqjbui1PtZBC7ehdYfa4y-olgW55uIhaMIkPdsYR9XBQAQ93ofcXd1t4J14QUGceh6zbJTh9_K5E5tQOANFCYKugzMz0F3R9C34f1H2PkBXnagJ2iJrFdbOMsvAYI0CxKwx-XMJ4qkUBZWM4sx980E"); data-name="Note 3"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCLXUblQzz-n59R-Fae6cEHsupfRX3CsAqhf7U2gHMvLdVZkOQwxh5D6CnE5EWy37g5rwxJhlcG-ln6dBWSP65DEjoBtrn9VcWTVCD1KP6lUa2PwYZo426UfsZd32Ktr_1T_1R_5SrO8FyNUpQmu6aPpe-TaMZqPcmjRrst_9H53eebHQUC9UC3ePTbxyqp-ScgD0BGX5wG4SW12VacSwlqOmi0pbMyqJ3AZu5k2IQ1SUv_fVM3l5knTXPYHM0WmMFsSolc6LMlr7PC");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCLXUblQzz-n59R-Fae6cEHsupfRX3CsAqhf7U2gHMvLdVZkOQwxh5D6CnE5EWy37g5rwxJhlcG-ln6dBWSP65DEjoBtrn9VcWTVCD1KP6lUa2PwYZo426UfsZd32Ktr_1T_1R_5SrO8FyNUpQmu6aPpe-TaMZqPcmjRrst_9H53eebHQUC9UC3ePTbxyqp-ScgD0BGX5wG4SW12VacSwlqOmi0pbMyqJ3AZu5k2IQ1SUv_fVM3l5knTXPYHM0WmMFsSolc6LMlr7PC"); data-name="Note 4"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBrTNh6gy9dEai8Xa1qMBSk5btXxJcYTbfH4SF2a8AVlWZBbpVWsnRtqx40SxNuFkyGbU7At4A5r6uHjFRePmKNFVtfWvXPFSdvQ0NMvuD7uanlKfWcgAzjJ7JAmsurnwL-lLzcHCh5EeK2EBa6HO8IBQzfpi6CDIbTCQjMPQ8o_Sx-TFC2rQgse5PWk8PGaeZEN55bfZbukyNXUJs6HUdCzLx24NQEqFuB2hoEM1NauHKAokcTT0J1aV1yjN8u1N_1ZcyZ_bFOcMuB");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBrTNh6gy9dEai8Xa1qMBSk5btXxJcYTbfH4SF2a8AVlWZBbpVWsnRtqx40SxNuFkyGbU7At4A5r6uHjFRePmKNFVtfWvXPFSdvQ0NMvuD7uanlKfWcgAzjJ7JAmsurnwL-lLzcHCh5EeK2EBa6HO8IBQzfpi6CDIbTCQjMPQ8o_Sx-TFC2rQgse5PWk8PGaeZEN55bfZbukyNXUJs6HUdCzLx24NQEqFuB2hoEM1NauHKAokcTT0J1aV1yjN8u1N_1ZcyZ_bFOcMuB"); data-name="Note 5"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZi5SYCdbd86Ar7PPd_A-FejP3uF4jHu5PNyM6E5cfrkT2qupNQKv7Txw__k-oijaoEJBMrOLuPAHmzh9BekPSNNamFOKltMcQc5JVeAg-TanLUpuiJzCBwmClQUZhCMKEaIxf8fX9D6mgM-PCn52aRTPF29Xxi2nTiLobFNiw6Q0aoPr2c4JhmPW2284hoe6CSIywD2fAlaQyvtvazWsvI60ljD7zmgdsORX7H6wXxFkV-UoRTnA9YWvxnz8okH_Ll2BDI2xaX_vw");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZi5SYCdbd86Ar7PPd_A-FejP3uF4jHu5PNyM6E5cfrkT2qupNQKv7Txw__k-oijaoEJBMrOLuPAHmzh9BekPSNNamFOKltMcQc5JVeAg-TanLUpuiJzCBwmClQUZhCMKEaIxf8fX9D6mgM-PCn52aRTPF29Xxi2nTiLobFNiw6Q0aoPr2c4JhmPW2284hoe6CSIywD2fAlaQyvtvazWsvI60ljD7zmgdsORX7H6wXxFkV-UoRTnA9YWvxnz8okH_Ll2BDI2xaX_vw"); data-name="Note 6"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPI2y1WaTJYW5FeRFWOJyZ8G3MRA6KPQR6cPyki6UkGuzDx-6zS4v2k0eT_8JY0udyNyjxDlaWw2mW4tOGw4Mj2TcjgvfaKBuSH3b012iypNwKOPZolK6Fb7e6CA_8h9rC76CAAdXls2vgVxCekRttkID24VGE9QlLZ_PwZglRCbXL_ac6vtvXltZyfWcGAFMZ_K7KRjAU5LTGW9NCrDkr1aidaehMK0vC3zFQ5y5BSrwt21IWyuFw_Q5rCkuo4YVARH412SBOP96M");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPI2y1WaTJYW5FeRFWOJyZ8G3MRA6KPQR6cPyki6UkGuzDx-6zS4v2k0eT_8JY0udyNyjxDlaWw2mW4tOGw4Mj2TcjgvfaKBuSH3b012iypNwKOPZolK6Fb7e6CA_8h9rC76CAAdXls2vgVxCekRttkID24VGE9QlLZ_PwZglRCbXL_ac6vtvXltZyfWcGAFMZ_K7KRjAU5LTGW9NCrDkr1aidaehMK0vC3zFQ5y5BSrwt21IWyuFw_Q5rCkuo4YVARH412SBOP96M"); data-name="Note 7"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD4HutweDXZ0x6wl5AD4pctAUwDA6VPNl03a1RR5G767OR69V5l5SoBIZNcWlYuECn-lBocIUb52-1AFJuXaCeFB53LhR5ShOzKirsnMe_bCIbalqZC-Thgs3cWUOl9kGZxzES10ljZgSLhf3iWwH9P4zBxSsBVUOJpgmf4ZvIdxoRXm-hySk9CzSoI3uuagJxyItyyKGnU8PLRP0e6DYGAhiqcGfmX5R6a7F9xw6zJ32-ATxOmq5_QvRwVFIDga2swric8nm5XSmlW");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD4HutweDXZ0x6wl5AD4pctAUwDA6VPNl03a1RR5G767OR69V5l5SoBIZNcWlYuECn-lBocIUb52-1AFJuXaCeFB53LhR5ShOzKirsnMe_bCIbalqZC-Thgs3cWUOl9kGZxzES10ljZgSLhf3iWwH9P4zBxSsBVUOJpgmf4ZvIdxoRXm-hySk9CzSoI3uuagJxyItyyKGnU8PLRP0e6DYGAhiqcGfmX5R6a7F9xw6zJ32-ATxOmq5_QvRwVFIDga2swric8nm5XSmlW"); data-name="Note 8"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1CxI8kuo-eSITMC0N_yuA6KsHKCwMo-o0q5J-rm3-ymyvtulyHXWzvEKj4qQSnwIQ4k4C00EOdAaJ5CTYk3b3__29MxgMA1cwDyZh-we6hTVuFYTMl5SmO7jUSr4l2EFv7i_Sr5DBCKfC6UY_DeYJYs__jyN-qo_q_65_5LgNCePA4Vbj8M5ZwgJ6_41wUiO4bNc5ZwYQHW6qUwsmo-EENwM76mQapk63hyqHJCstPlNoe9YDwKWvSMuGYj_xqF4gP2JppGz-ErW1");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1CxI8kuo-eSITMC0N_yuA6KsHKCwMo-o0q5J-rm3-ymyvtulyHXWzvEKj4qQSnwIQ4k4C00EOdAaJ5CTYk3b3__29MxgMA1cwDyZh-we6hTVuFYTMl5SmO7jUSr4l2EFv7i_Sr5DBCKfC6UY_DeYJYs__jyN-qo_q_65_5LgNCePA4Vbj8M5ZwgJ6_41wUiO4bNc5ZwYQHW6qUwsmo-EENwM76mQapk63hyqHJCstPlNoe9YDwKWvSMuGYj_xqF4gP2JppGz-ErW1"); data-name="Note 9"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHqP-JRQ7HFE-lNPgTOG8bcLAqn08ppnDPS4srUhOmPBimVExFe9ozoo7tE8HYyiUe5mE89HfrLepFtIG1NNVmJdIm6gSsKPWQEsREmmz_jUrvMrQ2u_G4ugSA3rY2AHEkG6s8Uu3VQxaLEXNp-JBI7eSwnQzVfqUUCn0XbAATBKAYM2SW_6SkVTG-ayenzTgpxYOP0EZYVDSYH0hjWQiP4C3dACTFA3yOykNCNQqYdjpUMhjmSVBzRkW-uI2QrM-VhpPZD0aclKyM");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHqP-JRQ7HFE-lNPgTOG8bcLAqn08ppnDPS4srUhOmPBimVExFe9ozoo7tE8HYyiUe5mE89HfrLepFtIG1NNVmJdIm6gSsKPWQEsREmmz_jUrvMrQ2u_G4ugSA3rY2AHEkG6s8Uu3VQxaLEXNp-JBI7eSwnQzVfqUUCn0XbAATBKAYM2SW_6SkVTG-ayenzTgpxYOP0EZYVDSYH0hjWQiP4C3dACTFA3yOykNCNQqYdjpUMhjmSVBzRkW-uI2QrM-VhpPZD0aclKyM"); data-name="Note 10"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBx4r1jiIMWMc9y5m8gSQ6l9PuQmZbfSyPB46orI6SyqxL186Cyf-Bizc7D9PCf_yPaKVyYeAOmr1zIOSEd_B_CMqPuHW9IOmeoDWuPMnYM0tWGi9B1vA5vwxtlSmOAAumTGHgnUNFTNWYURaVaZT_lrByTKY0cHrYCsjcWfab0NQ_10I8fhBtpIirHJ-gwGQyJlVfF36HmMDhqv8ImfGmv-fg2MWMxFFvxTE2IT3YjwUAykepj61ZTSHyFKHSh5rRdDX8IndGBdPjs");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBx4r1jiIMWMc9y5m8gSQ6l9PuQmZbfSyPB46orI6SyqxL186Cyf-Bizc7D9PCf_yPaKVyYeAOmr1zIOSEd_B_CMqPuHW9IOmeoDWuPMnYM0tWGi9B1vA5vwxtlSmOAAumTGHgnUNFTNWYURaVaZT_lrByTKY0cHrYCsjcWfab0NQ_10I8fhBtpIirHJ-gwGQyJlVfF36HmMDhqv8ImfGmv-fg2MWMxFFvxTE2IT3YjwUAykepj61ZTSHyFKHSh5rRdDX8IndGBdPjs"); data-name="Note 11"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaawqvTKzc3ObtU4ixRPrjLnEJSp-gac64ivTg3fTeOKTs2Rd1IGl6vDNk45b11L7T0J6O36NEvLslfiBPc0M_UE_AX872x8i4ygZxzkhnMnOqkmqG4seBBmikv7Zf9r3xO2R_DcemJt0q8xW-VRqWKOYEg9ZCi-KpA4xjU-9HwWKaq-G0TLd0FzmeuLrbuOFa_JcHOuqLCWqKn3sDDAGB1w2Uf-1BZIF57bvpXyyxb3XtAKSG-JfPd0YahN4O4CzoAN2llwUPwO4K");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaawqvTKzc3ObtU4ixRPrjLnEJSp-gac64ivTg3fTeOKTs2Rd1IGl6vDNk45b11L7T0J6O36NEvLslfiBPc0M_UE_AX872x8i4ygZxzkhnMnOqkmqG4seBBmikv7Zf9r3xO2R_DcemJt0q8xW-VRqWKOYEg9ZCi-KpA4xjU-9HwWKaq-G0TLd0FzmeuLrbuOFa_JcHOuqLCWqKn3sDDAGB1w2Uf-1BZIF57bvpXyyxb3XtAKSG-JfPd0YahN4O4CzoAN2llwUPwO4K"); data-name="Note 12"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWImZ6zEEeB9rD-Sjy7VIBGuEew0G2EALhGp7u3kgD8F0m167ns5mQSqJD5CALOMzML5avT5OB9pt-QccO6C3RiE1CX18obczifSGVEqQIfCqqGfVoa5pd8H9vURtVZoHbc-Jj9yBC1D8iDkwIB8Eun_HY202igL2UFprklJpGhE7tpCVwxeOzp9RvJId_yefOYCGL8TfxL7C8wC76DSF73_HvhwW9wYelJtmmGmUSjj5Ckm-Kk8IjZBXCgGU2Efjc2aolmZ8zBHGN");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWImZ6zEEeB9rD-Sjy7VIBGuEew0G2EALhGp7u3kgD8F0m167ns5mQSqJD5CALOMzML5avT5OB9pt-QccO6C3RiE1CX18obczifSGVEqQIfCqqGfVoa5pd8H9vURtVZoHbc-Jj9yBC1D8iDkwIB8Eun_HY202igL2UFprklJpGhE7tpCVwxeOzp9RvJId_yefOYCGL8TfxL7C8wC76DSF73_HvhwW9wYelJtmmGmUSjj5Ckm-Kk8IjZBXCgGU2Efjc2aolmZ8zBHGN"); data-name="Note 13"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC93lIgrfjvbpbtBstIR3yzlO8qF0P711MZOqxPDuCZG_SPNixzXpmgLqaUc-pSRHHqc3j1suikonDJXUuePmVPeXpsqFbLBcCQCBFVRX-anPLGNjPy_WmBVvaZBxqcpocv3JvSC70G_-l87Wcu7K67tQ_rkCIL2ebwGiST1wasxKnob8kzudn9C26J5g5Ugju4p2JYUkEiSS0LHd7-ruYNEWm9LfP3wUmpKsY9k5xVV7wIqHh8oGqwnZgzDXJ9lbrehS8KUv3beUnC");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC93lIgrfjvbpbtBstIR3yzlO8qF0P711MZOqxPDuCZG_SPNixzXpmgLqaUc-pSRHHqc3j1suikonDJXUuePmVPeXpsqFbLBcCQCBFVRX-anPLGNjPy_WmBVvaZBxqcpocv3JvSC70G_-l87Wcu7K67tQ_rkCIL2ebwGiST1wasxKnob8kzudn9C26J5g5Ugju4p2JYUkEiSS0LHd7-ruYNEWm9LfP3wUmpKsY9k5xVV7wIqHh8oGqwnZgzDXJ9lbrehS8KUv3beUnC"); data-name="Note 14"'
                 ></div>
               </div>
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHGofM4VjVt_RWDwDPD1XPUpUWqMwa2c_epxT46eZ4fRstiuNleaCnKOgSvG3vNogP63tAWk7ik-HJSIGybZDvL19grnAXuriktPAthD129cyyEtmtz--5VBMaQLzZUdC9GN0iXZm0DEmrzuw4-HsNq4mUoX5uy52iGr5qZXMvVxpqwJ-OYpnmCVRBKtnaG0DGDk0GWUThhcF4f6LKfT3bnkqzzOKqTKb45sn-VzUITZ9xNE9iRcLPrnwuIWNQvUwaXXeAHyBdggQ7");'
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHGofM4VjVt_RWDwDPD1XPUpUWqMwa2c_epxT46eZ4fRstiuNleaCnKOgSvG3vNogP63tAWk7ik-HJSIGybZDvL19grnAXuriktPAthD129cyyEtmtz--5VBMaQLzZUdC9GN0iXZm0DEmrzuw4-HsNq4mUoX5uy52iGr5qZXMvVxpqwJ-OYpnmCVRBKtnaG0DGDk0GWUThhcF4f6LKfT3bnkqzzOKqTKb45sn-VzUITZ9xNE9iRcLPrnwuIWNQvUwaXXeAHyBdggQ7"); data-name="Note 15"'
                 ></div>
               </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAR1U7_G1fI2FcfXQ4nE09xG0GXOrB4LCQdZjqedhK2PbtM1G4BNvsmO6xR2nZ1zE_LFRwNFesyHUxaCgQiLCULxPR2UxatXoJ9e82zMSxMrgtUzqNHuMW--a01FXoMxPFa5HHVzH1tDwPJPrhVYZc6aGjdKyO6I9MVMDicrM-MaVKQgkaaF_6ivdNcUwaujYjtCuPzNQV76pG3_HbqOqog_A2Grces7U2aZ-VfxnVp7TNBwUyhrwbT7Wk8yiG--xiPLbnqDcZCxP57");'
-                ></div>
-              </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnPcWAxyO-ZaIkTG1IPCwBlxp-BfirRWzJRVvUYGHautqfAmdqaGMMs3pDndCcgM7auyEsi7ADiZ3bxQ9SclWDXVna-rbHqNX7IQGevSacLpmcunl1BLetn-Vssm4B85O0gYTPWMg6z2y3HIbRK9Qouk8jomiQ4WkYo6XigUOJ5MgALFE4L8RMKPAqQZsf8zUZE_M_WRU4IytdP-0t3A-JPfHyuMBdwmzqhwDqY097EQRwcIROu3ENTjPK3aD9q9gwQjtfRycfomAI");'
-                ></div>
-              </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD4Ju156IqhML9WP-an9u4ks8M4NGzTGU8MS5ELTBADPSkrv5__j1T3g7CA4Cxu-Ek8JXrwSgTNmBB10qlebhRh9tJggwwJd-4I7dJOkTrT6hfl23h89H6-mfEUAR_sBNg2gif9kNIisZQLSrZlqpwfx8fF_QDzHKWPeCtqFH1OwoiefN_BzUAByVVNZCghGs0lEZDiScTpEko96soK9N4sBaqFUBSG-LpjmsYCBLa25iTWwIMPj5CgCf_HCKTtn3SQmUeZCxxgPMWI");'
-                ></div>
-              </div>
+            <div class="p-4">
+              <p id="note-limit" class="text-sm text-[#60758a]">You can select up to 10 notes.</p>
+              <p id="selected-notes" class="text-sm text-[#111418]"></p>
             </div>
             <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">What's in the Box</h2>
             <div class="flex items-center gap-4 bg-white px-4 min-h-14"><p class="text-[#111418] text-base font-normal leading-normal flex-1 truncate">Narrascent Pebble</p></div>
@@ -227,7 +216,7 @@
             </div>
             <div class="flex items-center gap-4 bg-white px-4 min-h-14"><p class="text-[#111418] text-base font-normal leading-normal flex-1 truncate">6 mixing cups</p></div>
             <div class="flex items-center gap-4 bg-white px-4 min-h-14"><p class="text-[#111418] text-base font-normal leading-normal flex-1 truncate">USB-C cable</p></div>
-            <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Pre-order Now</h2>
+            <h2 id="preorder-section" class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Pre-order Now</h2>
             <div class="flex flex-wrap gap-3 p-4">
               <label
                 class="text-sm font-medium leading-normal flex items-center justify-center rounded-lg border border-[#dbe0e6] px-4 h-11 text-[#111418] has-[:checked]:border-[3px] has-[:checked]:px-3.5 has-[:checked]:border-[#3d98f4] relative cursor-pointer"
@@ -243,7 +232,7 @@
               </label>
             </div>
             <p class="text-[#60758a] text-sm font-normal leading-normal pb-3 pt-1 px-4">Estimated shipping: 4-6 weeks</p>
-            <div class="flex px-4 py-3">
+            <div class="flex justify-center px-4 py-3">
               <button
                 class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 flex-1 bg-[#3d98f4] text-white text-base font-bold leading-normal tracking-[0.015em]"
               >
@@ -254,5 +243,13 @@
         </div>
       </div>
     </div>
-  </body>
+  <script>
+  document.getElementById("preorder-btn").addEventListener("click",function(){document.getElementById("preorder-section").scrollIntoView({behavior:"smooth"});});
+  document.getElementById("play-video").addEventListener("click",function(){var c=document.getElementById("video-container");c.innerHTML="<iframe src=\"https://www.youtube.com/embed/dQw4w9WgXcQ\" class=\"w-full h-full rounded-lg\" allowfullscreen></iframe>";});
+  const notes=document.querySelectorAll(".note");
+  const selected=[];
+  const out=document.getElementById("selected-notes");
+  notes.forEach(n=>n.addEventListener("click",()=>{const name=n.dataset.name;if(n.classList.contains("selected")){n.classList.remove("selected");const i=selected.indexOf(name);if(i>-1)selected.splice(i,1);}else{if(selected.length>=10){alert("You can select up to 10 notes.");return;}n.classList.add("selected");selected.push(name);}out.textContent=selected.join(", ");}));
+</script>
+</body>
 </html>
