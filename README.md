@@ -20,3 +20,6 @@ Available routes:
 - `/shop` – Palette shop.
 - `/compose` – Compose web app.
 - `/library` – Library page.
+- `/support` – Support & FAQ.
+- `/demo` – POST endpoint used by the home page interactive demo.
+
