@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -25,7 +26,6 @@ def compose():
 @app.route('/library')
 def library():
     return render_template('recipes.html')
-
 @app.route('/support')
 def support():
     return render_template('support.html')
@@ -41,5 +41,3 @@ def demo():
     }
     return jsonify(response)
 
-if __name__ == '__main__':
-    app.run(debug=True)

@@ -22,3 +22,4 @@ Available routes:
 - `/library` – Library page.
 - `/support` – Support & FAQ.
 - `/demo` – POST endpoint used by the home page interactive demo.
+
